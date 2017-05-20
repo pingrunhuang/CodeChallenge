@@ -6,11 +6,13 @@ package CodeChallenge.String;
 * strings = {"abc", "de"} -> "abcde" is the smallest
 * {"b","ba"} -> "bab" is the smallest
 * */
+// TODO
 public class AssembleStrings {
 //    public static String getSmallestString(String[] strings){
 //        String smallest_str;
 //        for (String str : strings){
 //
 //        }
+//
 //    }
 }

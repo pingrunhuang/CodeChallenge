@@ -15,7 +15,6 @@ class IsReverseStr{
     }
     String tmp = str + str;
     int l = str.length();
-    //TODO: use kmp algo instead
     for (int i=0; i<str.length(); i++) {
       StringBuilder str_builder = new StringBuilder();
       for (int j=i; j<i+l; j++) {

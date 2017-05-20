@@ -28,4 +28,9 @@ public class SortingTest {
     public void testInsertionSort(){
 
     }
+
+    @Test
+    public void testHeapSort(){
+
+    }
 }

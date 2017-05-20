@@ -1,0 +1,22 @@
+## Item 9: Remember to override the hashcode method when override the equals
+
+
+
+#### Steps for writing the hashcode method
+
+1. Store some constant nonzero value in an int variable called result.
+2. For the significant field f, do the following:  
+    * Compute the hash code value c for the field: 
+        * if the field is boolean, compute (f ? 1:0); 
+        * if the field is byte, char, short, or int, compute (int) f; if the field is long, compute (int) (f ^ (f>>>32));
+        * if the field is float, compute Float.floatToIntBits(f);
+        * if the field is double, compute Double.doubleToLongBits(f) and then hash the resulting long as in step 2; 
+        * if the field is an object reference, recursively invoke the hashcode on the field(null will return 0); 
+        * if the field is array, compute hash code for each significant element(if every element is significant, use Arrays.hashcode)
+    * Combine the constant value: result = 31 * result + c. ( 31 * I == (I << 5) where I is for performance consideration)
+3. Return result 
+4. Write unit test to verify whether equal instances have the same hash codes.
+
+`Must exclude any fields that are not used in equals comparisons!!!!!`
+
+* 并不要求不同的object有不一样的hashcode，但是如果有可以提高使用与hashcode相关的数据结构的性能。

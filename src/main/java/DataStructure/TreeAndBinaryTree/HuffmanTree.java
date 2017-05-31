@@ -105,6 +105,7 @@ class HuffmanTree{
     }
 
     // Huffman encoding
+    // TODO
     public void huffmanEncode(){
 
     }

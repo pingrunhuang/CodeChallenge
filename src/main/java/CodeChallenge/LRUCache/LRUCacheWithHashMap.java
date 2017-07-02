@@ -2,6 +2,7 @@ package CodeChallenge.LRUCache;
 
 import java.util.HashMap;
 
+// this implementation can't pass the O(1) time complexity
 public class LRUCacheWithHashMap {
 
     static class Node{
@@ -86,4 +87,19 @@ public class LRUCacheWithHashMap {
             map.put(key, created);
         }
     }
+
+    public static void main(String[] args){
+        LRUCacheWithHashMap cache = new LRUCacheWithHashMap( 2 /* capacity */ );
+
+        cache.set(1, 1);
+        cache.set(2, 2);
+        System.out.println(cache.get(1));       // returns 1
+        cache.set(3, 3);    // evicts key 2
+        System.out.println(cache.get(2));       // returns -1 (not found)
+        cache.set(4, 4);    // evicts key 1
+        System.out.println(cache.get(1));       // returns -1 (not found)
+        System.out.println(cache.get(3));       // returns 3
+        System.out.println(cache.get(4));       // returns 4
+    }
+
 }

@@ -3,36 +3,48 @@ package CodeChallenge;
 import java.util.Scanner;
 /*
 
-某餐馆有n张桌子，每张桌子有一个参数：a 可容纳的最大人数； 有m批客人，每批客人有两个参数:b人数，c预计消费金额。
+某餐馆有n张桌子，每张桌子有一个参数：a是可容纳的最大人数； 有m批客人，每批客人有两个参数:b人数，c预计消费金额。
 在不允许拼桌的情况下，请实现一个算法选择其中一部分客人，使得总预计消费金额最大 
 测试用例:
 4 6
+
 12 1 4 7
+
 11 3
 3 10
+
 35 10
 5 9
+
 12 10
 6 7
 
 对应输出应该为:
 
 29
-
-你的输出为:
-
-19
 */
 
 
 public class Restaurentdidi {
+
+    static class Table{
+        int capacity;
+        Table(int capacity){
+            this.capacity = capacity;
+        }
+    }
+
     static class Batch{
-        public int people;
-        public int money;
-        public Batch(int p, int m){
+        int people;
+        int money;
+        Batch(int p, int m){
             this.people = p;
             this.money = m;
         }
+    }
+
+    static int getMaximumRevenue(int n, int maxPeople, Batch[] costumers){
+
     }
 
     public static void main(String[] args){

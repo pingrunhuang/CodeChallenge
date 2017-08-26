@@ -20,3 +20,5 @@
 `Must exclude any fields that are not used in equals comparisons!!!!!`
 
 * 并不要求不同的object有不一样的hashcode，但是如果有可以提高使用与hashcode相关的数据结构的性能。
+
+* 也可使用第三方库，org.apache.commons.lang3.builder.HashCodeBuilder

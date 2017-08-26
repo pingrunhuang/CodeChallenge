@@ -3,6 +3,8 @@ package DataStructure;
 /*
 * when it comes to big data, we can leverage the bitmap to query data
 * this is a simple implementation of bitmap, see sun.jvm.hotspot.utilities.BitMap for full
+* 先看看这样的一个场景：给一台普通PC，2G内存，要求处理一个包含40亿个不重复并且没有排过序的无符号的int整数，给出一个整数，
+* 问如何快速地判断这个整数是否在文件40亿个数据当中？
 * */
 
 import org.junit.Assert;
@@ -20,7 +22,7 @@ import org.junit.Test;
 public class BitMap {
     // we assume the operating system is 32 bit
     private static final int SHIFT = 5; // 2^5 = 32, 32 bit = 8 bytes = 1 int
-    private static final int MASK = 0X1F; // hex equivalent to 32
+    private static final int MASK = 0X1F; // hex equivalent to 31
 //    private static int[] bitMap; // used for indexing the bit translated from certain value
     private static int[] origin_array;
     private static int BYTESIZE = 8;
@@ -28,11 +30,16 @@ public class BitMap {
 
     /*
     * Initialize the array with all 0 in it
+    * First find the block then goes to the exact index inside the block
     * @param    the value to be put in the bitmap
     * @param    array of int to be initialize as 0, each element is actually a bucket,
     *           inside a bucket will have a int value to be index on each bit position to be 1 or 0
     * */
     static void set(int n, int[] bitMap){
+        /*
+        * a >> b : a / (2^b)
+        * n & 0X1F == n & (0001 1111) : only keep the last 5 bit
+        * */
         // bitmap[i / 32] |= 1 << i % 32;
         int index_loc = n >> SHIFT; // n / SHIFT, to find the given value's bucket index
         int bit_loc = n & MASK; // n % MASK, to find which bit location this value is going to be placed
@@ -88,5 +95,4 @@ public class BitMap {
         System.out.println(Integer.MAX_VALUE);
         Assert.assertEquals((1 << 31) - 1, Integer.MAX_VALUE);
     }
-
 }

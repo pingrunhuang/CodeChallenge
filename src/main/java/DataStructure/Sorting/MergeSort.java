@@ -1,5 +1,7 @@
 package DataStructure.Sorting;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,8 @@ public class MergeSort{
     return merge(left,right);
   }
 
-  public static void main(String[] args){
+  @Test
+  public void testMergeSort(){
     Integer[] test = {10,19,14,35,31,42,27};
     // 10 14 19 27 31 35 42
     Integer[] result = mergeSort(test);

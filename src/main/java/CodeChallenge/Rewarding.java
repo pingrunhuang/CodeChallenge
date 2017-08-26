@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// TODO
 public class Rewarding {
    public static List<String> list = new ArrayList<String>();
    public static String a;

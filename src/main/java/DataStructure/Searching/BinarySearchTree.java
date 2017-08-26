@@ -1,8 +1,12 @@
-package DataStructure;
+package DataStructure.Searching;
 
 import java.util.*;
 
 public class BinarySearchTree<T extends Comparable<T>>{
+
+    // average time complexity: O(log2(n))
+    // worst time complexity: O(n)
+    // the height of the tree equals to the time complexity
 
     // inner class node
     static class BinarySearchNode<T>{
@@ -279,8 +283,8 @@ public class BinarySearchTree<T extends Comparable<T>>{
         tree.insert(17);
         tree.insert(30);
         tree.breadthFirstTraversal();
-       System.out.println(tree.contains(tree.getRoot(), 9));
-       System.out.println(tree.findNode(tree.getRoot(), 7));
-       System.out.println(tree.findParent(31, tree.getRoot()).getData());
+        System.out.println(tree.contains(tree.getRoot(), 9));
+        System.out.println(tree.findNode(tree.getRoot(), 7));
+        System.out.println(tree.findParent(31, tree.getRoot()).getData());
     }
 }

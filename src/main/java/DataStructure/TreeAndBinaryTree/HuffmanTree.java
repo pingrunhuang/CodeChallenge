@@ -1,7 +1,11 @@
-package DataStructure;
+package DataStructure.TreeAndBinaryTree;
+
+import org.junit.Test;
+
 
 class HuffmanTree{
-    static class HuffmanNode{
+
+    class HuffmanNode{
         public char data;
         public double weight;
         public HuffmanNode lNode;
@@ -16,7 +20,7 @@ class HuffmanTree{
         }
     }
 
-    static class HuffmanInt{
+    class HuffmanInt{
         public char data;
         public double weight;
         public int lNode;
@@ -105,12 +109,21 @@ class HuffmanTree{
     }
 
     // Huffman encoding
+    /*
+    * character set: char[] d
+    * frequency of each char: int[] w
+    * */
+    class HCode{
+        char[] char_set;
+        int start;
+    }
     // TODO
-    public void huffmanEncode(){
+    public void huffmanEncode(HuffmanNode hn, HCode[] hc, int n){
 
     }
 
-    public static void main(String[] agrs){
+    @Test
+    public void test(){
         int n = 4;
         // HuffmanNode[] n1 = new HuffmanNode[2*n-1];
         HuffmanInt[] n2 = new HuffmanInt[2*n-1];
@@ -124,6 +137,11 @@ class HuffmanTree{
         for (int i = 0; i<n; i++) {
             System.out.println(n2[i].data);
         }
+    }
+
+    @Test
+    public void testHuffmanEncoding(){
+
     }
 
 }

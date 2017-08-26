@@ -1,4 +1,4 @@
-/**
- * Created by Frank on 21/05/2017.
- */
+/*
+* this package contains all the code challenge that I have solved on now coder
+* */
 package CodeChallenge.NowCoder.com;

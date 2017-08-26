@@ -9,14 +9,14 @@ import org.junit.Test;
 * or
 * k[i] >= k[2 * i] && k[i] >= k[2 * i] + 1 (maximum heap)
 *
-* setps:
+* steps:
 * 1. for a given index i, if k[i] < k[2*i] or k[i] < k[2*i+1] then swap it. repeat it to get the max heap
 * 2. the root must be the largest number now, replace it with the last item and reduce the size of heap by 1
 * 3. repeat step 1 and 2
 *
 * the basic idea is to sort while heapifying
+* time complexity: O(nlogn)
 * */
-// TODO
 public class HeapSort {
 
     // initialize max heap
@@ -66,6 +66,12 @@ public class HeapSort {
         input = new int[]{6, 8, 7, 9, 0, 1, 3, 2, 4, 5};
         startSorting(input);
         for (int i : input){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        input = new int[]{10,4,2,5,7};
+        startSorting(input);
+        for (int i: input){
             System.out.print(i + " ");
         }
     }

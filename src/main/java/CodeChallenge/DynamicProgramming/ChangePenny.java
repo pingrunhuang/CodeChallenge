@@ -9,7 +9,7 @@ package CodeChallenge.DynamicProgramming;
 *
 * */
 
-public class Change {
+public class ChangePenny {
 
     private static int[] arr = {1,5,10,20};
 
@@ -30,6 +30,7 @@ public class Change {
         // 终止条件
         if (index == array.length)
             // 判断最后一位最后一位是否能满足总数为aim，可以则计数加1
+            // equals to: result = (aim == 0 ? 1 : 0)
             result = aim == 0 ? 1 : 0;
         else{
             for (int i=0;i*array[index]<=aim;i++){
@@ -47,15 +48,40 @@ public class Change {
     * 本质上动态规划的优化就是一个用空间换时间的解决方案。
     * 在本题中，由于有两个变量index和aim是在递归过程中一直在改变的，因此申请一个二维的表，对组合数进行记录
     * dp[i][j] （i<array.length, j<=aim）表示只用array[0...i]这些货币进行组合得到总额为j的组合数
-    * dp[i][j] = d[i-1][j-0*arr[i]] + d[i-1][j-1*arr[i]] + d[i-1][j-2*arr[i]] ... 
+    * dp[i][j] = d[i-1][j-0*arr[i]] + d[i-1][j-1*arr[i]] + d[i-1][j-2*arr[i]] ...
+    * 直到i=N j=aim为止，得出总共的组合数
     * */
 
-    public static int optimization(int index, int aim){
-        int[][] dp = new int[arr.length][aim+1];
-
+    //TODO: debug it to understand it
+    public static int optimization(int[] array, int aim){
+        if (array == null || array.length == 0 || aim < 0)
+            return 0;
+        int[][] dp = new int[array.length+1][aim+1];
+        return recursive(array,0, aim, dp);
+    }
+    public static int recursive(int[] array, int index, int aim, int[][] map){
+        int result = 0;
+        if (index == array.length)
+            result = aim == 0 ? 1 : 0;
+        else{
+            int mapValue=0;
+            for (int i=0;array[index]*i<=aim;i++){
+                mapValue = map[index+1][aim-i*array[index]];
+                if (mapValue != 0){
+                    result += mapValue == -1?0:mapValue;
+                }else{
+                    result += recursive(array, index++, aim-array[index]*i, map);
+                }
+            }
+        }
+        // update the map
+        map[index][aim] = result == 0? -1:result;
+        return result;
     }
 
-
+    public static void main(String[] args){
+        System.out.println(optimization(arr,50));
+    }
 
 
 }

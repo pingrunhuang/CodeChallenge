@@ -7,12 +7,8 @@
 
 ## TODO
 1. java source code
-2. hadoop source code
-3. hbase source Code
-4. zookeeper source Code
-5. hdfs source Code
-6. Generics
-7. [collections](http://www.vogella.com/tutorials/JavaCollections/article.html#exercise_javacollections)
-8. polymorphism, encapsulation, inherit
-9. redis
-10. spring, spring mvc
+2. spark source code
+3. try to build the elasticsearch project and read the code
+4. Generics
+5. [collections](http://www.vogella.com/tutorials/JavaCollections/article.html#exercise_javacollections)
+6. polymorphism, encapsulation, inherit

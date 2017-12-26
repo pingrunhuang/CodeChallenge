@@ -14,7 +14,7 @@ class Codec:
         :type longUrl: str
         :rtype: str
         """
-        encodedURL = longUrl.__hash__()
+        encodedURL = longUrl
         return encodedURL
         
 

@@ -22,8 +22,9 @@ Conditions:
     2. reward[row, col] = max(reward[row+1][col]-grid[row+1][col], reward[row][col+1]-grid[row][col+1])
     3. reward[0,0]=0
 
-'''
 
+'''
+# TODO
 class Solution(object):
 
     def cherryPickup(self, grid):

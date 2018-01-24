@@ -3,6 +3,7 @@
 
 '''
 Given a string, your task is to count how many palindromic substrings in this string.
+The basic idea of palindrom problem is to loop the center of the string
 '''
 
 class Solution:

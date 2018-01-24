@@ -16,7 +16,6 @@ public class ExchangeSubString {
         for (int i = sentence.length()-1; i>=0; i--){
             result.append(sentence.charAt(i));
         }
-
         return result.toString();
     }
 

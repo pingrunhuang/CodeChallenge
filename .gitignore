@@ -2,3 +2,4 @@
 .google-kickstart.env
 .target
 .idea
+./leetcode/solutions/__pycache__

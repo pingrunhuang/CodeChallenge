@@ -24,15 +24,25 @@ def genTree(arr, i):
         
     return None
             
-def viewTree(root):
+def viewTreeBFS(root):
     que=deque()
     que.append(root)
+    cur_end_node = root
+    next_end_node = root
+    cur_node = root
     while len(que)>0:
-        node =que.popleft()
-        if node:
-            print(node.val)
-            que.append(node.left)
-            que.append(node.right)
+        cur_node =que.popleft()
+        if cur_node.left!=None:
+            next_end_node=cur_node.left
+            que.append(cur_node.left)
+        if cur_node.right!=None:
+            next_end_node=cur_node.right
+            que.append(cur_node.right)
+        if cur_node==cur_end_node:
+            cur_end_node=next_end_node
+            print(cur_node.val)
+        else:
+            print(cur_node.val, end=' ')
 
 class TestCases(unittest.TestCase):
     

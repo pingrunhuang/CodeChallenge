@@ -24,8 +24,6 @@ class Solution:
             else:
                 result.append(str(i))
         return result
-                
-
 
 
 if __name__=='__main__':

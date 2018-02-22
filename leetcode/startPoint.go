@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"./solutions"
+	"./golang_solution"
 )
 
 var solutionID = flag.Int("n", 1, "Please specify the number of the solution that you want to check [1-731]")

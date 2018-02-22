@@ -29,30 +29,42 @@ class Solution:
         :rtype: List[TreeNode]
         """
         if n==0:
-            return None
+            return []
         return self.recurse(1,n)
     
     def recurse(self, start, end):
+        if start>end:
+            return None
         if start == end:
             return [TreeNode(start)]
         
         result = []
-        for v in range(start,end):
-            tempNode = TreeNode(v)
-            left_trees = self.recurse(start,v)
+        for v in range(start,end+1):
+            left_trees = self.recurse(start,v-1)
             right_trees = self.recurse(v+1,end)
-            for l in left_trees:
+            if left_trees is not None and right_trees is not None:
+                for l in left_trees:
+                    for r in right_trees:
+                        tempNode = TreeNode(v)
+                        tempNode.left=l
+                        tempNode.right=r
+                        result.append(tempNode)
+            elif left_trees is None:
                 for r in right_trees:
-                    tempNode.left=l
-                    tempNode.right=r
+                    tempNode = TreeNode(v)
+                    tempNode.right = r
+                    result.append(tempNode)
+            elif right_trees is None:
+                for l in left_trees:
+                    tempNode = TreeNode(v)
+                    tempNode.left = l
                     result.append(tempNode)
         return result
 
 if __name__=='__main__':
     soluiton = Solution()
     result = soluiton.generateTrees(3)
+    print(result)
     for t in result:
         viewTreeBFS(t)
-        
-
-            
+        print()

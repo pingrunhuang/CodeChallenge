@@ -7,6 +7,8 @@ One cell is a square with side length 1. The grid is rectangular, width and heig
 
 TIPS:
 TOTAL - duplicated
+
+Matrix
 '''
 
 class Solution:
@@ -20,9 +22,9 @@ class Solution:
             for col, val in enumerate(cols):
                 if val==1:
                     pieces+=1
-                    if row<len(grid) and grid[row+1][col]==1:
+                    if row<len(grid)-1 and grid[row+1][col]==1:
                         neighbours+=1
-                    if col<len(grid[0]) and grid[row][col+1]==1:
+                    if col<len(grid[0])-1 and grid[row][col+1]==1:
                         neighbours+=1
         return 4*pieces-2*neighbours
         

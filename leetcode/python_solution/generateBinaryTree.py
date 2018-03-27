@@ -7,7 +7,6 @@ class TreeNode:
         self.left = None
         self.right = None
 
-
 def genTree(arr, i):
     '''
     input: list[int]
@@ -15,13 +14,14 @@ def genTree(arr, i):
     '''
     if len(arr)<=0:
         return None
-    
-    if i < len(arr):
+    if i<len(arr):
+        if arr[i] is None:
+            return None
         root = TreeNode(arr[i])
-        root.left=genTree(arr,2*i+1)
-        root.right=genTree(arr, 2*i+2)
+        if arr[i]!=None:
+            root.left=genTree(arr,2*i+1)
+            root.right=genTree(arr, 2*i+2)
         return root
-        
     return None
             
 def viewTreeBFS(root):

@@ -31,8 +31,6 @@ class Solution:
                 start+=1
                 if minimal_length>end-start+1:
                     minimal_length=end-start+1
-
-
         if minimal_length == len(nums)+1:
             return 0
         return minimal_length

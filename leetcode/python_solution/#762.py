@@ -26,4 +26,3 @@ if __name__ == '__main__':
     print(solution.countPrimeSetBits(L1, R1))
     L2,R2=10, 15
     print(solution.countPrimeSetBits(L2,R2))
-

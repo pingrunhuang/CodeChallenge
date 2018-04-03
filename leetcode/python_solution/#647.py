@@ -24,7 +24,7 @@ class Solution:
             left=int(center/2)
             right=left+center%2
             while left>=0 and right<N and s[left]==s[right]:
-                print("right:", right, "left:", left, "center:",center/2)
+                print("right:", right, "left:", left, "center:",int(center/2))
                 count+=1
                 left-=1
                 right+=1

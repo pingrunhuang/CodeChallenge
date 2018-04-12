@@ -7,7 +7,7 @@ class Solution:
         :type s: str
         :rtype: str
         """
-        vowels = "vowels"
+        vowels = "aeiouAEIOU"
         head = 0
         tail = len(s)-1
         result = list(s)
@@ -23,7 +23,10 @@ class Solution:
                 result[tail] = s[head]
                 head+=1
                 tail-=1
-        return str(result)
+        result_s = ""
+        for i in result:
+            result_s+=i
+        return result_s
 
 if __name__ == "__main__":
     solution = Solution()

@@ -12,8 +12,16 @@ The result can be in any order.
 
 Follow up:
 - What if the given array is already sorted? How would you optimize your algorithm?
+    use two pointers
 - What if nums1's size is small compared to nums2's size? Which algorithm is better?
-- What if elements of nums2 are stored on disk, and the memory is limited such that    you cannot load all elements into the memory at once?
+    I think the first one is better since we can always check for the shorter one in each iteration
+- What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+    get part of the elements from nums2 for one time and repeat untill nums2 is all checked. The goal is to reduce the disk IO
+
+
+other solution like distributed system: 
+    1. store on dfs and use map reduce paradigm
+    2. use spark streaming
 '''
 class Solution(object):
     def intersect(self, nums1, nums2):
@@ -49,6 +57,8 @@ class Solution(object):
                     p1+=1
                     p2+=1
         return result
+
+class 
             
 if __name__ == "__main__":
     solution = Solution()

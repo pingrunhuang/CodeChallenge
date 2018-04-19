@@ -7,22 +7,26 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def genTree(arr, i):
+def genTree(arr):
+    from collections import deque
     '''
     input: list[int]
     output: treeNode of the root
+    the binary tree should always with length 2^k
     '''
     if len(arr)<=0:
         return None
-    if i<len(arr):
-        if arr[i] is None:
-            return None
-        root = TreeNode(arr[i])
-        if arr[i]!=None:
-            root.left=genTree(arr,2*i+1)
-            root.right=genTree(arr, 2*i+2)
-        return root
-    return None
+    def helper(i):
+        if i<len(arr):
+            if arr[i] is None:
+                return None
+            else:
+                root = TreeNode(arr[i])    
+                root.left=helper(2*i+1)
+                root.right=helper(2*i+2)
+                
+                return root
+    return helper(0)
             
 def viewTreeBFS(root):
     que=deque()
@@ -48,9 +52,10 @@ class TestCases(unittest.TestCase):
     
     def setUp(self):
         self.testCase1 = [3,9,20,None,None,15,7]
-
+        self.testCase2 = [1,None, 2, None, None, 3, None]
     def testGenTree(self):
-        self.assertEqual(3, genTree(self.testCase1, 0).val)
+        self.assertEqual(3, genTree(self.testCase1).val)
+        viewTreeBFS(genTree(self.testCase2))
     def testViewTree(self):
         root=genTree(self.testCase1, 0)
         

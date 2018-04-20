@@ -6,5 +6,5 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-echo "if __name__ == \"__main__\":" > ./python_solution/$1.py
-echo "    solution = Solution()" >> ./python_solution/$1.py
+echo "if __name__ == \"__main__\":" > ./$1.py
+echo "    solution = Solution()" >> ./$1.py

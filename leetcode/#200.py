@@ -1,5 +1,6 @@
 '''
-Matrix
+Matrix:
+Count the number of islands in a matrix
 '''
 
 class Solution:

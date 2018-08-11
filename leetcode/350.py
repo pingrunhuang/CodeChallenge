@@ -58,7 +58,6 @@ class Solution(object):
                     p2+=1
         return result
 
-class 
             
 if __name__ == "__main__":
     solution = Solution()

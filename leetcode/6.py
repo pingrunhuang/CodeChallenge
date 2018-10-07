@@ -28,11 +28,6 @@ P     I
 '''
 from queue import Queue
 class Solution:
-    def flip(self, b):
-        if b:
-            return False
-        else:
-            return True
     def convert(self, s, numRows):
         """
         :type s: str

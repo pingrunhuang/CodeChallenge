@@ -13,7 +13,6 @@ Output: "bb"
 
 corner case
 '''
-import math
 
 class Solution3:
     '''
@@ -24,13 +23,33 @@ class Solution3:
 
 class Solution2:
     '''
-    With dp
+    Longest common sub-string With dp
     '''
+    def longest_common_sub(self, s1, s2):
+        rows = len(s1)
+        cols = len(s2)
+        # initialize the table for storing the common suffix of substrings 
+        self.suffix_table = [["" for _ in range(rows+1)] for _ in range(cols+1)]
+        result = ""
+        for i in range(rows+1):
+            for j in range(cols+1):
+                if i == 0 or j == 0 :
+                    self.suffix_table[i][j]=""
+                elif s1[i-1] == s2[j-1]:
+                    self.suffix_table[i][j]=self.suffix_table[i-1][j-1]+s1[i-1]
+                    # this is used for checking if the common sub string is palindrome 
+                    # omit it if we are just checking the LCS
+                    # result = self.suffix_table[i][j] if len(self.suffix_table[i][j]) > len(result) else result
+                    result = self.suffix_table[i][j] if len(self.suffix_table[i][j]) > len(result) and self.suffix_table[i][j]==self.suffix_table[i][j][::-1] else result
+                else:
+                    self.suffix_table[i][j]=""
+        return result
+
     def longestPalindrome(self,s):
-        pass    
+        # reverse a list s[begin:end:step]
+        return self.longest_common_sub(s, s[::-1])
 
 class Solution:
-
     def longestPalindrome(self, s):
         """
         :type s: str
@@ -58,9 +77,15 @@ class Solution:
             right+=1
         return right - left - 1
 
+
 if __name__ == '__main__':
-    solution = Solution()
+    s = Solution2()
     t1="babad"
     t2="cbbd"
     t3="bb"
-    print(solution.longestPalindrome(t3))
+    t4="abac"
+    t5="caba"
+    t6="aacdefcaa"
+    # print(solution.longestPalindrome(t3))
+    t7="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" # memory error for the solution2 situation
+    print(s.longestPalindrome(t7))

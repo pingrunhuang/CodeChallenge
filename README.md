@@ -12,3 +12,6 @@
 4. Generics
 5. [collections](http://www.vogella.com/tutorials/JavaCollections/article.html#exercise_javacollections)
 6. polymorphism, encapsulation, inherit
+
+
+Thanks to [Stefan Pochmann](https://leetcode.com/stefanpochmann/), not only do I learn how to solve algo with python, but also learn a lot of python tricks from him!

@@ -1,3 +1,6 @@
+'''
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+'''
 class Solution:
     def spiralOrder(self, matrix):
         """
@@ -37,9 +40,9 @@ class Solution:
             |4 5 6|  =>  |5 8|  =>  |5 4|  =>  |5|
             |7 8 9|      |4 7|
         """
-        # a and b means if one of a and b is None or false, return that one, else return the latter one
+        # a and b means if one of a and b is None or false, return the first one, else return the latter one
         # * means unpack the zip object
-        return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1])
+        return matrix and [*matrix.pop(0)] + self.spiralOrder2([*zip(*matrix)][::-1])
 
 
 if __name__ == "__main__":

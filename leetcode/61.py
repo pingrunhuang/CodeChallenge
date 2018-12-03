@@ -22,23 +22,27 @@ class Solution:
         """
         if head == None or head.next == None or k==0:
             return head
-
-
-        old_head = head
-        t1 = head
-        t2 = head
-        while t1.next:
-            t1 = t1.next
-            if k==0:
-                t2 = t2.next
-            else:
-                k-=1
-        new_head = t2.next
-        t2.next = None
-        t1.next = old_head
-        return new_head
+        queue = []
+        tail = head
+        while tail:
+            queue.append(tail)
+            tail = tail.next
+        # # we can skip the recursion here
+        k =  k % len(queue)
+        for _ in range(k):
+            tail = queue.pop()
+            queue[-1].next=None
+            tail.next = queue[0]
+            queue.insert(0, tail)
+            print_list(queue[0])
+        return queue[0]
         
 
+def print_list(head):
+    while head:
+        print(head.val,end="->")
+        head=head.next
+    print()
 
 if __name__ == "__main__":
     solution = Solution()
@@ -48,14 +52,21 @@ if __name__ == "__main__":
     t1.next.next.next = ListNode(4)
     t1.next.next.next.next = ListNode(5)
     result1 = solution.rotateRight(t1, 2)
-    while result1:
-        print(result1.val)
-        result1=result1.next
+    print_list(result1)
 
-    print()
-    t2 = ListNode(1)
-    t2.next = ListNode(2)
-    result2 = solution.rotateRight(t2, 0)
-    while result2:
-        print(result2.val)
-        result2 = result2.next
+    t2 = ListNode(0)
+    t2.next = ListNode(1)
+    t2.next.next = ListNode(2)
+    result2 = solution.rotateRight(t2, 4)
+    print_list(result2)
+
+    t3 = ListNode(9)
+    t3.next = ListNode(10)
+    result3 = solution.rotateRight(t3, 2)
+    print_list(result3)
+
+    t4 = ListNode(1)
+    t4.next = ListNode(2)
+    t4.next.next = ListNode(3)
+    result4 = solution.rotateRight(t4, 2000000000)
+    print_list(result4)

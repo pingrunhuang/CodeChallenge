@@ -7,6 +7,8 @@ a list of integers will have many different permutation. our mission is to modif
 hard part:
 1. 为什么要从右往左（反之会找到远大于当前值的数）
 2. 当找到第一个相邻的降序对nums[i], nums[i-1]的时候，怎么用O(N)的时间在nums[i:]里找到那个刚好比nums[i-1]大的数
+
+permutation and Combination
 '''
 
 class Solution:

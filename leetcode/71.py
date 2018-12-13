@@ -32,18 +32,14 @@ class Solution:
                 if len(node_list)!=0:
                     node_list.pop()
             else:
-                node_list.append('/'+node)
-        if node_list and node_list[0]=='':
-            node_list.pop(0)
-        if not node_list:
-            return '/'
-        return ''.join(node_list)
+                node_list.append(node)
+        return '/'+'/'.join(node_list)
 
 
 if __name__ == "__main__":
     s = Solution()
     assert s.simplifyPath("/home/") == "/home"
-    # assert s.simplifyPath("/a/./b/../../c/") == "/c"
+    assert s.simplifyPath("/a/./b/../../c/") == "/c"
     assert s.simplifyPath("/a/../../b/../c//.//") == "/c"
     assert s.simplifyPath("/a//b////c/d//././/..") == "/a/b/c"
         

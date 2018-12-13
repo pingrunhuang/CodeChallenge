@@ -1,5 +1,6 @@
 '''
 TODO: write a blog to demonstrate different permutation related questions in leetcode
+permutation and Combination
 '''
 
 class Solution(object):

@@ -17,6 +17,7 @@ Given n will be between 1 and 9 inclusive.
 Given k will be between 1 and n! inclusive.
 
 TODO: How to solve time limit exceed????
+permutation and Combination
 """
 
 class Solution:

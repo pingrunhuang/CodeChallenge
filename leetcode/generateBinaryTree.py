@@ -57,7 +57,7 @@ class TestCases(unittest.TestCase):
         self.assertEqual(3, genTree(self.testCase1).val)
         viewTreeBFS(genTree(self.testCase2))
     def testViewTree(self):
-        root=genTree(self.testCase1, 0)
+        root=genTree(self.testCase1)
         
             
         

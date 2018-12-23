@@ -48,5 +48,4 @@ if __name__ == "__main__":
     s.merge(nums1, m, nums2, n)
     print(nums1)
 
-        
-
+    

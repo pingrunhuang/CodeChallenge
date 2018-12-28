@@ -26,7 +26,7 @@ Return the following binary tree:
 #         self.left = None
 #         self.right = None
 
-from generateBinaryTree import viewTreeBFS, TreeNode
+from tree_utils import viewTreeBFS, TreeNode
 
 class Solution:
     def buildTree(self, inorder, postorder):

@@ -22,7 +22,7 @@ return its zigzag level order traversal as:
 
 ideas of BFS
 '''
-from generateBinaryTree import genTree
+from tree_utils import Tree
 import unittest
 from collections import deque
 # Definition for a binary tree node.
@@ -78,9 +78,9 @@ class Solution:
 class TestBinaryTree(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
-        self.testCase1 = genTree([3,9,20,None,None,15,7],0)
+        self.testCase1 = Tree([3,9,20,None,None,15,7])
     def testZigzagLevelOrder(self):
-        self.assertEqual([[3],[20,9],[15,7]], self.solution.zigzagLevelOrder(self.testCase1))
+        self.assertEqual([[3],[20,9],[15,7]], self.solution.zigzagLevelOrder(self.testCase1.root))
         
 
 if __name__=='__main__':

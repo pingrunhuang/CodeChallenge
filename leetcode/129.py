@@ -17,7 +17,7 @@ Return the sum = 12 + 13 = 25.
 DFS: note that dfs generally require a helper method for recording the cummulated result
 '''
 
-from generateBinaryTree import genTree
+from tree_utils import genTree
 
 # Definition for a binary tree node.
 class TreeNode:

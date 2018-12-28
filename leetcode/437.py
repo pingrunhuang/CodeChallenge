@@ -12,7 +12,7 @@ The tree has no more than 1,000 nodes and the values are in the range -1,000,000
 TODO
 """
 
-from generateBinaryTree import genTree
+from tree_utils import Tree
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -62,6 +62,6 @@ class Solution(object):
 if __name__ == "__main__":
     solution = Solution()
     tree1 = [10,5,-3,3,2,None,11,3,-2,None,1]
-    t1 = genTree(tree1,0)
+    t1 = Tree(tree1).root
     sum = 8
     print(solution.pathSum(t1, sum))

@@ -1,7 +1,7 @@
 '''
 Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.
 '''
-from generateBinaryTree import TreeNode, genTree, viewTreeBFS
+from tree_utils import Tree
 
 class Solution:
     def averageOfLevels(self, root):
@@ -38,7 +38,7 @@ class Solution:
 
 if __name__=='__main__':
     solution = Solution()
-    t1= genTree([3,9,20,15,17], 0)
-    viewTreeBFS(t1)
-    print(solution.averageOfLevels(t1))
+    tree= Tree([3,9,20,15,17])
+    tree.viewTreeBFS()
+    print(solution.averageOfLevels(tree.root))
     

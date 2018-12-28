@@ -1,7 +1,7 @@
 #!/bin/python
 
 import unittest
-from generateBinaryTree import TreeNode, genTree
+from tree_utils import Tree
 
 '''
 Given a binary search tree and the lowest and highest boundaries as L and R, 
@@ -11,6 +11,8 @@ so the result should return the new root of the trimmed binary search tree.
 HINT:
 BST:
 LEFT < ROOT < RIGHT
+
+TODO
 '''
 
 class Solution:
@@ -31,20 +33,8 @@ class Solution:
             root.left = self.trimBST(root.left, L, R)
             root.right = self.trimBST(root.right, L, R)
             return root
-        else:
-            if root.val > R:
-                return self.trimBST(root.left)
-            if root.val < L:
-                return self.trimBST(root.right)
-                
-                
-            
-        
-        
-            
-
-        
-
-class TestTrimBST(unittest.TestCase):
-    def setUp(self):
-        self.testCase1=
+        # else:
+        #     if root.val > R:
+        #         return self.trimBST(root.left)
+        #     if root.val < L:
+        #         return self.trimBST(root.right)

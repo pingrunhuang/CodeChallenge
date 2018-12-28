@@ -3,3 +3,4 @@
 .target
 .idea
 ./leetcode/solutions/__pycache__
+.vscode

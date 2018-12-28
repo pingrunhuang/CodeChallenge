@@ -21,7 +21,7 @@ The flattened tree should look like:
 post order traverse:
     traversing require thinking about the last node
 '''
-from generateBinaryTree import genTree
+from tree_utils import Tree
 
 class Solution:
     def __init__(self):
@@ -56,6 +56,6 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    t1 = genTree([1,2,5,3,4,None,6], 0)
-    solution.flatten(t1)
+    t1 = Tree([1,2,5,3,4,None,6])
+    solution.flatten(t1.root)
     solution.pre_order_print(t1)

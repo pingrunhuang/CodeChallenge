@@ -13,11 +13,32 @@ class Solution:
         """
         if not root:
             return []
-        
         result = []
         p1 = root
         p2 = root
-        while p1:
-            if p1.right: p2 = p1.right
-            elif p2.left: p2 = p2.left
+        row = []
+        queue = [root]
+        while len(queue)>0:
+            cur_node = queue.pop(0)
+            row.append(cur_node.val)
+            if cur_node.left:
+                queue.append(cur_node.left)
+                p2 = cur_node.left
+            if cur_node.right:
+                queue.append(cur_node.right)
+                p2 = cur_node.right
+
+            if cur_node == p1:
+                p1=p2
+                result.append(row.copy())
+                row.clear()
+        return result
             
+
+if __name__ == "__main__":
+    from tree_utils import genTree
+    s =Solution()
+    t1 = genTree([3,9,20,None,None,15,7])
+    print(s.levelOrder(t1))
+    t2 = genTree([1,2,3,4,5])
+    print(s.levelOrder(t2))

@@ -28,7 +28,7 @@ class Solution(object):
         self.manipulate(root, result)
         return result
 
-from generateBinaryTree import genTree, viewTreeBFS
+from tree_utils import genTree, viewTreeBFS
 if __name__ == "__main__":
     solution = Solution()
     tree1 = [1,None, 2, None, None, 3, None]

@@ -4,7 +4,7 @@
 BST
 '''
 
-from generateBinaryTree import TreeNode, genTree
+from tree_utils import Tree
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -34,7 +34,9 @@ class Solution:
             queue=temp_queue
         return result
 
-    def largestValues2(self, root):
+
+class Solution2:
+    def largestValues(self, root):
         row=[root]
         result=[]
         while any(row):
@@ -47,6 +49,5 @@ class Solution:
 
 if __name__=="__main__":
     solution = Solution()
-    t1=[1,3,2,5,3,None,9]
-    root1=genTree(t1,0)
-    print(solution.largestValues1(root1))
+    tree=Tree([1,3,2,5,3,None,9])
+    print(solution.largestValues(tree.root))

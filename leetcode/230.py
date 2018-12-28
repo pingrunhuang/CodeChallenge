@@ -35,9 +35,9 @@ class Solution2(object):
     def kthSmallest(self, root, k):
         pass
 
-from generateBinaryTree import genTree
+from tree_utils import Tree
 if __name__ == "__main__":
     solution = Solution()
     tree = [1]
-    t = genTree(tree,0)
+    t =Tree(tree).root
     print(solution.kthSmallest(t, 1))

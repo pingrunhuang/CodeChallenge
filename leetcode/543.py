@@ -5,7 +5,7 @@ find the longest path between 2 nodes
 BST
 '''
 
-from generateBinaryTree import genTree
+from tree_utils import Tree
 
 class Solution:
     def diameterOfBinaryTree(self, root):
@@ -31,7 +31,7 @@ class Solution:
 
 if __name__=="__main__":
     solution = Solution()
-    t1 = genTree([1, 2, 3, 4, 5, None, None], 0)
+    t1 = Tree([1, 2, 3, 4, 5, None, None]).root
     print(solution.diameterOfBinaryTree(t1))
-    t2 = genTree([1], 0)
+    t2 = Tree([1]).root
     print(solution.diameterOfBinaryTree(t2))

@@ -27,7 +27,7 @@ Binary tree [1,2,3], return false.
 #         self.left = None
 #         self.right = None
 
-from generateBinaryTree import genTree
+from tree_utils import genTree
 class Solution(object):
     def isValidBST(self, root):
         """

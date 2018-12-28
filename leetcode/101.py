@@ -30,7 +30,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    from generateBinaryTree import genTree
+    from tree_utils import genTree
     s = Solution()
     assert s.isSymmetric(genTree([1,2,2,3,4,4,3]))==True
     assert s.isSymmetric(genTree([1,2]))==False

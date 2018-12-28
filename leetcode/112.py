@@ -13,7 +13,7 @@ Given the below binary tree and sum = 22,
         7    2      1
 return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 '''
-from generateBinaryTree import genTree, viewTreeBFS
+from tree_utils import Tree
 
 # Definition for a binary tree node.
 class TreeNode(object):
@@ -45,11 +45,11 @@ class Solution(object):
 if __name__ == "__main__":
     solution = Solution()
     tree1 = [5,4,8,11,None, 13, 4, 7,2,None, None, None,1]
-    t1 = genTree(tree1, 0)
+    t1 = Tree(tree1)
     target1 = 22
-    print(solution.hasPathSum(t1, target1))
+    print(solution.hasPathSum(t1.root, target1))
     tree2 = [1,2]
-    t2 = genTree(tree2, 0)
+    t2 = Tree(tree2)
     target2 = 1
-    print(solution.hasPathSum(t2, target2))
+    print(solution.hasPathSum(t2.root, target2))
 

@@ -9,7 +9,7 @@ BST
 '''
 
 
-from generateBinaryTree import genTree
+from tree_utils import Tree
 class Solution(object):
     
     def reload_the_set(self, root, unique_ele):
@@ -36,9 +36,7 @@ class Solution(object):
         
 if __name__ == "__main__":
     solution = Solution()
-    tree = [2, 2, 5, None, None, 5, 7]
-    t = genTree(tree)
-    print(solution.findSecondMinimumValue(t))
-    tree1 = [2,2,2]
-    t1 = genTree(tree1)
-    print(solution.findSecondMinimumValue(t1))
+    tree1 = Tree([2, 2, 5, None, None, 5, 7])
+    print(solution.findSecondMinimumValue(tree1.root))
+    tree2 = Tree([2,2,2])
+    print(solution.findSecondMinimumValue(tree2.root))

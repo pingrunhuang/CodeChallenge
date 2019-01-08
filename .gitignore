@@ -2,5 +2,7 @@
 .google-kickstart.env
 .target
 .idea
-./leetcode/solutions/__pycache__
+leetcode/solutions/__pycache__
 .vscode
+leetcode/__pycache__/
+spark-warehouse/

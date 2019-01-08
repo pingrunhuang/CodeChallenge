@@ -20,13 +20,13 @@ Return the following binary tree:
 '''
 
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
-from tree_utils import viewTreeBFS, TreeNode
+from leetcode.tree_utils import Tree
 
 class Solution:
     def buildTree(self, inorder, postorder):
@@ -52,4 +52,6 @@ if __name__=='__main__':
     solution = Solution()
     inorder = [9,3,15,20,7]
     postorder = [9,15,7,20,3]
-    viewTreeBFS(solution.buildTree(inorder, postorder))
+    result1 = Tree(solution.buildTree(inorder, postorder))
+    result1.viewTreeBFS()
+

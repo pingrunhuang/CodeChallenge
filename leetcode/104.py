@@ -19,7 +19,7 @@ class Solution:
         return max(self.maxDepth(root.left), self.maxDepth(root.right))+1
 
 if __name__ == "__main__":
-    from tree_utils import genTree
+    from leetcode.tree_utils import genTree
     s = Solution()
     t1 = genTree([3,9,20,None,None,15,7])
     print(s.maxDepth(t1))

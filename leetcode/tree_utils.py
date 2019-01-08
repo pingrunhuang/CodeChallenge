@@ -11,7 +11,8 @@ class Tree:
     def __init__(self, arr):
         self.root = self.genTree(arr)
 
-    def genTree(self, arr):
+    @staticmethod
+    def genTree(arr):
         '''
         input: list[int]
         output: treeNode of the root
@@ -37,6 +38,7 @@ class Tree:
                 return
             else:
                 self.viewTreeBFS(self.root)
+                return
         if not isinstance(root, TreeNode):
             print("Root of the tree should be TreeNode type")
             return 

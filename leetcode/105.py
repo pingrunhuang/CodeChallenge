@@ -40,7 +40,7 @@ THINK ABOUT THE DIFFERENCE BETWEEN 105 AND 106
 #         self.left = None
 #         self.right = None
 
-from tree_utils import TreeNode, viewTreeBFS
+from leetcode.tree_utils import TreeNode, viewTreeBFS
 
 class Solution:
     def buildTree(self, preorder, inorder):

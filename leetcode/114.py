@@ -21,7 +21,7 @@ The flattened tree should look like:
 post order traverse:
     traversing require thinking about the last node
 '''
-from tree_utils import Tree
+from leetcode.tree_utils import Tree
 
 class Solution:
     def __init__(self):
@@ -47,7 +47,7 @@ class Solution:
 
 
     def pre_order_print(self, root):
-        if root==None:
+        if root is None:
             return None
         print(root.val)
         self.pre_order_print(root.left)

@@ -78,6 +78,7 @@ class Solution1(object):
     @timing
     def ladderLength(self, beginWord, endWord, wordList):
         """
+        The idea is to use bfs and hashmap
         :type beginWord: str
         :type endWord: str
         :type wordList: List[str]

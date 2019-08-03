@@ -15,3 +15,11 @@
 
 
 Thanks to [Stefan Pochmann](https://leetcode.com/stefanpochmann/), not only do I learn how to solve algo with python, but also learn a lot of python tricks from him!
+
+
+# Top 10 algo:
+1. dfs
+2. bfs
+3. the matching brackets (asked by skyscanner)
+4. hash tables (memoization, fabonacci)
+5. pointer manipulation

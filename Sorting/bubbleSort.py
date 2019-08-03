@@ -1,4 +1,8 @@
 
+"""
+log(N^2)
+"""
+
 def swap(i1, i2, arr):
     temp = arr[i1]
     arr[i1] = arr[i2]

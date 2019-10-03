@@ -11,3 +11,6 @@ insert into Employee values(4, "Max", 90000, NULL);
 
 -- join solution
 SELECT a.NAME AS Employee FROM Employee AS a JOIN Employee AS b ON a.ManagerId = b.Id AND a.Salary > b.Salary;
+
+-- 2 tables
+select a.Name as "Employee" from Employee as a, Employee as b where a.ManagerId=b.Id and a.Salary > b.Salary;

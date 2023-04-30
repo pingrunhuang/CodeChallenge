@@ -30,9 +30,6 @@ class Solution:
         self.recursion(result, '', n, 0)
         return result
 
-# poi 编码的代码重构
-# emr spark
-
 if __name__ == "__main__":
     s = Solution()
     print(s.generateParenthesis(3))

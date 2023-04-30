@@ -16,7 +16,7 @@ class Solution(object):
                     return False
             else:
                 if t[i] in char_map.values():
-                    # map to itself
+                    # multi mapping
                     return False
                 else: 
                     char_map[s[i]] = t[i]

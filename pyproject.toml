@@ -1,0 +1,15 @@
+[tool.pdm]
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "pingrunhuang", email = "pingrunhuang@gmail.com"},
+]
+dependencies = [
+    "ipython>=8.13.1",
+    "pandas>=2.0.1",
+]
+requires-python = ">=3.11"
+license = {text = "MIT"}

@@ -1,18 +1,23 @@
 import unittest
-from collections import deque
+from typing import Optional, List, Union
 
 
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x
-        self.left = None
-        self.right = None
+        self.left: Optional[TreeNode] = None
+        self.right: Optional[TreeNode] = None
 
 
 class Tree:
-    def __init__(self, arr):
-        self.root = self.genTree(arr)
+    def __init__(self, data: Union[List, TreeNode, None]):
+        if isinstance(data, List):
+            self.root = self.genTree(data)
+        elif isinstance(data, TreeNode):
+            self.root = data
+        else:
+            self.root = None
 
     @staticmethod
     def genTree(arr):
@@ -24,7 +29,7 @@ class Tree:
         if len(arr) <= 0:
             return None
 
-        def helper(i):
+        def helper(i)->Optional[TreeNode]:
             if i < len(arr):
                 if arr[i] is None:
                     return None
@@ -37,7 +42,7 @@ class Tree:
 
         return helper(0)
 
-    def viewTreeBFS(self, root=None):
+    def viewTreeBFS(self, root:Optional[TreeNode]=None):
         if not root:
             if not self.root:
                 return
@@ -72,7 +77,7 @@ class TestCases(unittest.TestCase):
         self.testCase2 = Tree([1, None, 2, None, None, 3, None])
 
     def testGenTree(self):
-        self.assertEqual(3, self.testCase1.root.val)
+        self.assertEqual(3, getattr(self.testCase1.root, "val"))
         self.testCase1.viewTreeBFS(self.testCase1.root)
 
     def testViewTree(self):

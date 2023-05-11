@@ -33,9 +33,9 @@ class Solution:
         return result
 
 if __name__ == "__main__":
-    from tree_utils import genTree, viewTreeBFS
+    from tree_utils import Tree
     s = Solution()
-    t1 = genTree([3,9,20, None, None,15,7])
+    t1 = Tree.genTree([3,9,20, None, None,15,7])
     result = s.levelOrderBottom(t1)
     print(result)
     

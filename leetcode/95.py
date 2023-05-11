@@ -18,7 +18,7 @@ Notice that how to transform the question into a recursive one: add a stopping c
 Steps:
 with no memoization -> with memoization
 '''
-from tree_utils import TreeNode, viewTreeBFS
+from tree_utils import TreeNode, Tree
 
 class Solution:
     def __init__(self):
@@ -34,7 +34,7 @@ class Solution:
     
     def recurse(self, start, end):
         if start>end:
-            return None
+            return []
         if start == end:
             return [TreeNode(start)]
         
@@ -64,7 +64,5 @@ class Solution:
 if __name__=='__main__':
     soluiton = Solution()
     result = soluiton.generateTrees(3)
-    print(result)
-    for t in result:
-        viewTreeBFS(t)
-        print()
+    tree = Tree(result)
+    tree.viewTreeBFS()

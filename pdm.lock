@@ -222,8 +222,9 @@ version = "0.2.6"
 summary = "Measures the displayed width of unicode strings in a terminal"
 
 [metadata]
-lock_version = "4.1"
-content_hash = "sha256:ad4c327add42d50f0ac56d7d7a3c802d1a11db34eef45807fc0506f572dfb08a"
+lock_version = "4.2"
+groups = ["default"]
+content_hash = "sha256:6866fe2f775f7f5a489f33eedb1bc7c9aa47be34cb59b161d4a47373c8de00ed"
 
 [metadata.files]
 "appnope 0.1.3" = [

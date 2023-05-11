@@ -28,9 +28,9 @@ class Solution(object):
         self.manipulate(root, result)
         return result
 
-from tree_utils import genTree, viewTreeBFS
+from tree_utils import Tree
 if __name__ == "__main__":
     solution = Solution()
     tree1 = [1,None, 2, None, None, 3, None]
-    t1 = genTree(tree1)
+    t1 = Tree.genTree(tree1)
     print(solution.inorderTraversal(t1))

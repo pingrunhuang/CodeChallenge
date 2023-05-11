@@ -12,11 +12,11 @@ Note: A leaf is a node with no children.
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+from typing import Optional
 
 class Solution:
 
-    def minDepth(self, root):
+    def minDepth(self, root)->int:
         """
         :type root: TreeNode
         :rtype: int
@@ -30,11 +30,11 @@ class Solution:
         if root.left:
             left_depth = 1 + self.minDepth(root.left)
         else:
-            left_depth = None
+            left_depth = 0
         if root.right:
             right_depth = 1 + self.minDepth(root.right)
         else:
-            right_depth = None
+            right_depth = 0
         if right_depth and left_depth:
             return min(left_depth, right_depth)
         elif right_depth:

@@ -7,4 +7,4 @@ leetcode/solutions/__pycache__
 leetcode/__pycache__/
 spark-warehouse/
 __pypackages__
-.pdm.toml
+.pdm-python

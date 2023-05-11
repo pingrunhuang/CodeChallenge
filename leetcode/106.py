@@ -19,14 +19,7 @@ Return the following binary tree:
 # TODO
 '''
 
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
-from leetcode.tree_utils import Tree
+from leetcode.tree_utils import Tree, TreeNode
 
 class Solution:
     def buildTree(self, inorder, postorder):

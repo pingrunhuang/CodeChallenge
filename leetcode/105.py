@@ -40,10 +40,10 @@ THINK ABOUT THE DIFFERENCE BETWEEN 105 AND 106
 #         self.left = None
 #         self.right = None
 
-from leetcode.tree_utils import TreeNode, viewTreeBFS
+from leetcode.tree_utils import TreeNode, Tree
 
 class Solution:
-    def buildTree(self, preorder, inorder):
+    def buildTree(self, preorder, inorder)->TreeNode:
         """
         :type preorder: List[int]
         :type inorder: List[int]
@@ -67,4 +67,4 @@ if __name__=='__main__':
     inorder = [9,3,15,20,7]
     solution = Solution()
     root = solution.buildTree(preorder, inorder)
-    viewTreeBFS(root)
+    tree = Tree(root)

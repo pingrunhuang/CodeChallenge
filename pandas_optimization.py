@@ -152,3 +152,58 @@ test_multicondition2(df)
 """
 handle dict look up with vectorization
 """
+
+
+
+
+
+"""
+generate some random geographic data
+"""
+def generate_random_geo_data(length=1000):
+    characters = [chr(x) for x in range(ord("A"), ord("z")+1)]
+
+    names = [
+        characters[random.randint(0, len(characters)-1)] for _ in range(length)
+    ]
+    latitudes = [random.uniform(-180, 180) for _ in range(length)]
+    longitudes = [random.uniform(-180, 180) for _ in range(length)]
+    df = pd.DataFrame([{
+        "name": names[i],
+        "latitude": latitudes[i],
+        "longitude": longitudes[i]
+    } for i in range(length)])
+    return df
+
+"""
+some function to process geo data row by row
+"""
+def haversine(lat1, lon1, lat2, lon2):
+    miles_constant = 3959
+    lat1, lon1, lat2, lon2 = map(np.deg2rad,[lat1, lon1, lat2, lon2])
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = np.sin(dlat/2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2)**2
+    c = 2 * np.arcsin(np.sqrt(a))
+    mi = miles_constant * c
+    return mi
+
+geodata = generate_random_geo_data()
+
+@millisecond_timer
+def test_apply(df):
+    df["distance"] = df.apply(lambda x: haversine(0, 0, x["latitude"], x["longitude"]), axis=1)
+
+test_apply(geodata)
+
+@millisecond_timer
+def test_pd_series(df):
+    df["distance"] = haversine(0, 0, df["latitude"], df["longitude"])
+
+test_pd_series(geodata)
+
+@millisecond_timer
+def test_np_array(df):
+    df["distance"] = haversine(0, 0, df["latitude"].values, df["longitude"].values)
+
+test_np_array(geodata)

@@ -90,12 +90,12 @@ test_np_vec(df)
 simple apply function
 """
 @millisecond_timer
-def test_apply():
+def test_simple_apply():
     df.apply(
         lambda x: "buy" if x["price"]/x["volume"]>x["spread"] else "sell", axis=1
     )
 
-test_apply()
+test_simple_apply()
 
 
 """

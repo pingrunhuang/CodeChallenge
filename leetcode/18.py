@@ -1,3 +1,22 @@
+"""
+Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+0 <= a, b, c, d < n
+a, b, c, and d are distinct.
+nums[a] + nums[b] + nums[c] + nums[d] == target
+You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+Example 2:
+
+Input: nums = [2,2,2,2,2], target = 8
+Output: [[2,2,2,2]]
+"""
 class Solution:
     def fourSum(self, nums, target):
         """
@@ -8,19 +27,22 @@ class Solution:
         if len(nums)<4:
             return []
         nums = sorted(nums)
-        print(nums)
         result = []
         for first_index in range(len(nums)-3):
-            print(first_index)
-            if nums[first_index]+nums[-1]+nums[-2]+nums[-3]<target:continue # too small, different from too large scen
-            if nums[first_index]+nums[first_index+1]+nums[first_index+2]+nums[first_index+3]>target:break # too large
+            if nums[first_index]+nums[-1]+nums[-2]+nums[-3]<target:
+                continue # too small, different from too large scen
+            if nums[first_index]+nums[first_index+1]+nums[first_index+2]+nums[first_index+3]>target:
+                break # too large
             if first_index>0 and nums[first_index]==nums[first_index-1]:
                 continue
             for second_index in range(first_index+1, len(nums)-2):
                 
-                if nums[first_index]+nums[second_index]+nums[-1]+nums[-2]<target:continue # too small
-                if nums[first_index]+nums[second_index]+nums[second_index+1]+nums[second_index+2]>target:break # too large
-                if second_index>first_index+1 and nums[second_index]==nums[second_index-1]: continue
+                if nums[first_index]+nums[second_index]+nums[-1]+nums[-2]<target:
+                    continue # too small
+                if nums[first_index]+nums[second_index]+nums[second_index+1]+nums[second_index+2]>target:
+                    break # too large
+                if second_index>first_index+1 and nums[second_index]==nums[second_index-1]:
+                    continue
                 third_index = second_index+1
                 fourth_index = len(nums)-1
                 while third_index < fourth_index:
@@ -30,8 +52,10 @@ class Solution:
                         result.append([nums[first_index], nums[second_index], nums[third_index], nums[fourth_index]])
                         third_index+=1
                         fourth_index-=1
-                        while third_index<fourth_index and nums[third_index]==nums[third_index-1]: third_index+=1
-                        while third_index<fourth_index and nums[fourth_index]==nums[fourth_index+1]: fourth_index-=1
+                        while third_index<fourth_index and nums[third_index]==nums[third_index-1]:
+                            third_index+=1
+                        while third_index<fourth_index and nums[fourth_index]==nums[fourth_index+1]:
+                            fourth_index-=1
                     elif nums[first_index]+nums[second_index]+nums[third_index]+nums[fourth_index]<target:
                         third_index+=1
                     else:

@@ -6,7 +6,7 @@
 class ListNode:
     def __init__(self, x):
         self.val = x
-        self.next = None
+        self.next:ListNode|None = None 
 
 
 class Solution:
@@ -22,12 +22,12 @@ class Solution:
             head2 = dummy
             distance = 0
             while head1.next:
-                  if distance==n:
+                  if distance==n and head2.next:
                       head2=head2.next
                   else:
                       distance+=1
                   head1 = head1.next
-            head2.next = head2.next.next
+            head2.next = head2.next.next if head2.next else None
             return dummy.next
 
       def removeNthFromEnd1(self, head, n):

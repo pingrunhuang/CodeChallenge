@@ -10,7 +10,7 @@ Output: 1->1->2->3->4->4
 class ListNode:
     def __init__(self, x):
         self.val = x
-        self.next = None
+        self.next:ListNode|None = None
 
 class Solution:
     def mergeTwoLists(self, l1, l2):

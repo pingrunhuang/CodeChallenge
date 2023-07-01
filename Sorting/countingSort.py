@@ -12,18 +12,14 @@ def counting_sort(arr):
     """
     if len(arr) <= 1:
         return arr
-    max_element = arr[0]
-    for x in arr[1:]:
-        if x >= max_element:
-            max_element = x
-    print(f"Max: {max_element}")
+    max_element = max(arr)
     counting_arr = [0 for _ in range(max_element)]
     for x in arr:
         counting_arr[x-1] += 1
     result = []
     for i,v in enumerate(counting_arr):
         if v != 0:
-            result += [i] * v
+            result += [i+1] * v # deal with duplication
     # TODO: trying to figure out a way to be more pythonic way
     # result = [ *([x[0]]*x[1]) for x in enumerate(counting_arr) if x[1] != 0]
     return result

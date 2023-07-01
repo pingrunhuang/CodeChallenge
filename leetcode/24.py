@@ -2,7 +2,7 @@
 class ListNode:
     def __init__(self, x):
         self.val = x
-        self.next = None
+        self.next:ListNode|None = None
 
 class Solution:
     def swapPairs_rec(self, head):

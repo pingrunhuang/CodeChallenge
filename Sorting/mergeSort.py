@@ -1,7 +1,8 @@
 from collections import deque
 
 """
-nlog(n)
+complexity: O(nlog(n))
+divide and conquer algo
 """
 def merge(lList, rList):
     '''

@@ -1,6 +1,6 @@
 '''
-TODO: write a blog to demonstrate different permutation related questions in leetcode
-permutation and Combination
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
+
 '''
 
 class Solution(object):
@@ -14,7 +14,8 @@ class Solution(object):
             return
         else:
             for num in nums:
-                if num in temp_result: continue
+                if num in temp_result: 
+                    continue
                 temp_result.append(num)
                 self.dfs(result, nums, temp_result)
                 temp_result.pop()
@@ -31,4 +32,6 @@ class Solution(object):
 if __name__ == '__main__':
     s = Solution()
     t1 = [1,2,3]
-    s.permute(t1)
+    s.permute(t1) #[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+    t2 = [0,1]
+    s.permute(t2) #[[0,1],[1,0]]

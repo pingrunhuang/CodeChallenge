@@ -26,13 +26,12 @@ class Solution:
                 p2+=1
                 nums[p2]=nums[p1+1]
             p1+=1
+        del nums[p2+1:]
         return p2+1
-                
-            
 
 
 if __name__ == "__main__":
     solution = Solution()
-    t1 = [1,1,2]
+    t1 = [1,1,2,2,2,3,3,4]
     print(solution.removeDuplicates(t1))
     print(t1)

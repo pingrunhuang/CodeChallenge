@@ -17,3 +17,5 @@ class Solution:
             return x+self.maximumGain(new_s, x, y)
         
         return 0
+    def run(self):
+        

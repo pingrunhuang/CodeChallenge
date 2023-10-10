@@ -23,3 +23,6 @@ Thanks to [Stefan Pochmann](https://leetcode.com/stefanpochmann/), not only do I
 3. the matching brackets (asked by skyscanner)
 4. hash tables (memoization, fabonacci)
 5. pointer manipulation
+
+
+- run leetcode code: `python .\src\main.py --module-name=leetcode.34`

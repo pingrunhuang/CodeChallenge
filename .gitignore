@@ -8,3 +8,4 @@ leetcode/solutions/__pycache__
 spark-warehouse/
 __pypackages__
 .pdm-python
+.venv

@@ -45,6 +45,7 @@ class Solution:
             current_row = current_row + 1 if is_going_down else current_row - 1
         return ''.join(rows)
 
+    
 if __name__ == "__main__":
     solution = Solution()
     t1 = "PAYPALISHIRING"

@@ -7,6 +7,8 @@ If the target is not found in the array, return [-1, -1].
 
 TODO Could not solve the corner case 
 '''
+from utils import assertion_print
+
 class Solution:
     def binarySearchLowest(self, nums, left, right, target):
         if left==right:
@@ -61,16 +63,24 @@ class Solution:
                 l = mid+1
             else:
                 r = mid
+        if nums[l]==target and nums[r]==target:
+            lowest = l
+            highest = r
         return [lowest, highest]
-                
+
+    def run(self):
+        nums = [5,7,7,8,8,10]
+        assertion_print(self.searchRange(nums, 8), [3,4])
+        assertion_print(self.searchRange(nums, 6), [-1,-1])
+        nums = [2,2]
+        assertion_print(self.searchRange(nums, 2),[0,1])
+        nums = [1,4]
+        assertion_print(self.searchRange(nums, 4), [1,1])
+        nums=[1,2,5,5,5,9]
+        assertion_print(self.searchRange(nums, 5), [2,4])
+        nums = [0,0,0,1,2,3]
+        assertion_print(self.searchRange(nums, 0), [0,2])
+    
+
 if __name__ == "__main__":
     s = Solution()
-    nums = [5,7,7,8,8,10]
-    print(s.searchRange(nums, 8))
-    print(s.searchRange(nums, 6))
-    nums = [2,2]
-    print(s.searchRange(nums, 2))
-    nums = [1,4]
-    print(s.searchRange(nums,4))
-    nums=[1,2,5,5,5,9]
-    print(s.searchRange(nums, 5))

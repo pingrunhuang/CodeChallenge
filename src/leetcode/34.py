@@ -5,36 +5,35 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 
 If the target is not found in the array, return [-1, -1].
 
-TODO Could not solve the corner case 
+required
+related: binary search 
 '''
 from utils import assertion_print
 
 class Solution:
-    def binarySearchLowest(self, nums, left, right, target):
-        if left==right:
-            return left
-        while left<right:
-            mid = left+(right-left)//2
+    def search_left_most_index(self, nums, left, right, target, index:int=-1):
+        while left <= right:
+            mid = (left+right)//2
             if nums[mid]==target:
-                return mid
+                right = mid-1
+                index = self.search_left_most_index(nums, left, right, target, mid)
             elif nums[mid]<target:
                 left=mid+1
-            else:
-                right=mid
-        return right
+            elif nums[mid]>target:
+                right=mid-1
+        return index
 
-    def binarySearchHighest(self, nums, left, right, target):
-        if left==right:
-            return left
-        while left<right:
-            mid = left+(right-left)//2
+    def search_right_most_index(self, nums, left, right, target, index:int=-1):
+        while left<=right:
+            mid=(left+right)//2
             if nums[mid]==target:
-                return mid if nums[mid]!=nums[mid+1] else mid+1
+                left=mid+1
+                index=self.search_right_most_index(nums, left, right, target, mid)
             elif nums[mid]<target:
                 left=mid+1
             else:
-                right=mid
-        return left
+                right=mid-1
+        return index
 
     def searchRange(self, nums, target):
         """
@@ -51,22 +50,9 @@ class Solution:
                 return [-1,-1]
         l = 0
         r = len(nums)-1
-        highest = -1
-        lowest = -1
-        while l<r:
-            mid = l + (r-l)//2
-            if nums[mid]==target:
-                lowest = self.binarySearchLowest(nums, l, mid, target)
-                highest = self.binarySearchHighest(nums, mid, r, target)
-                return [lowest, highest]
-            elif nums[mid]<target:
-                l = mid+1
-            else:
-                r = mid
-        if nums[l]==target and nums[r]==target:
-            lowest = l
-            highest = r
-        return [lowest, highest]
+        lowest_idx = self.search_left_most_index(nums, l, r, target)
+        highest_idx = self.search_right_most_index(nums, l, r, target)
+        return [lowest_idx, highest_idx]
 
     def run(self):
         nums = [5,7,7,8,8,10]

@@ -1,4 +1,5 @@
 # misc
+.DS_Store
 .google-kickstart.env
 .target
 .idea
